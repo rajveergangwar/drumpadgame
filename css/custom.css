@@ -18,7 +18,7 @@ html, body {
 }
 
 canvas.pad{
-  background: rgba(255, 87, 34, 0.86);
+background: rgba(255, 87, 34, 0.86);
 width: 100%;
 height: 100%;
 display: table;

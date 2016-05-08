@@ -4,35 +4,55 @@
   <link rel="stylesheet" href="css/custom.css"></link>
   <script src="js/jquery-2.2.3.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script>
+    $(document).bind('mobileinit',function(){
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 </head>
 
-<div class="container-fluid fill">
+<div class="container-fluid fill drumpad-container">
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad1" class="pad"></canvas>
+      <canvas id="pad1" class="pad" data-sound="assets/sounds/tabla/1.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad2" class="pad"></canvas>
+      <canvas id="pad2" class="pad" data-sound="assets/sounds/tabla/2.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad3" class="pad"></canvas>
+      <canvas id="pad3" class="pad" data-sound="assets/sounds/tabla/3.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad4" class="pad"></canvas>
+      <canvas id="pad4" class="pad" data-sound="assets/sounds/tabla/4.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad5" class="pad"></canvas>
+      <canvas id="pad5" class="pad" data-sound="assets/sounds/tabla/5.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad6" class="pad"></canvas>
+      <canvas id="pad6" class="pad" data-sound="assets/sounds/tabla/6.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad7" class="pad"></canvas>
+      <canvas id="pad7" class="pad" data-sound="assets/sounds/tabla/7.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad8" class="pad"></canvas>
+      <canvas id="pad8" class="pad" data-sound="assets/sounds/tabla/8.wav"></canvas>
     </div>
     <div id="map" class="col-sm-4 col-md-4 col-xs-4">
-      <canvas id="pad9" class="pad"></canvas>
+      <canvas id="pad9" class="pad" data-sound="assets/sounds/tabla/9.wav"></canvas>
     </div>
 </div>
+<script type="text/javascript">
+var activePad = "1.wav";
+$("canvas").on("tap",function(e) {
+  activePad = $(this).attr('data-sound');
+  var obj = document.createElement("audio");
+   obj.src=activePad;
+   obj.volume=1;
+   obj.autoPlay=false;
+   obj.preLoad=true;
+   obj.play();
+});
+$("body").css("overflow", "hidden");
+  </script>
 </html>
